@@ -112,11 +112,12 @@ class ScrollingUtilities {
             //Scroll to the desired item. The offset used here is kind of hard to explain.
             //If the position we wish to scroll to is, say, position 10.5, we scroll to position 10,
             //and then offset by 0.5 * rowHeight. This is how we achieve smooth scrolling.
-            LinearLayoutManager layoutManager = ((LinearLayoutManager) materialScrollBar.recyclerView.getLayoutManager());
+            
+            StaggeredGridLayoutManager layoutManager = ((StaggeredGridLayoutManager) materialScrollBar.recyclerView.getLayoutManager());
             layoutManager.scrollToPositionWithOffset(spanCount * exactItemPos / scrollPosState.rowHeight,
-                    -(exactItemPos % scrollPosState.rowHeight));
+                     -(exactItemPos % scrollPosState.rowHeight));
         } else {
-            LinearLayoutManager layoutManager = ((LinearLayoutManager) materialScrollBar.recyclerView.getLayoutManager());
+            StaggeredGridLayoutManager layoutManager = ((StaggeredGridLayoutManager) materialScrollBar.recyclerView.getLayoutManager());
             layoutManager.scrollToPosition(customScroller.getItemIndexForScroll(touchFraction));
         }
     }
